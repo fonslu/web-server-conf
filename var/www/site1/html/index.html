@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Site de Teste - Nginx</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; background: #f4f4f4; }
+    h1 { color: #2c3e50; }
+    .status { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Bem-vindo ao Site de Teste!</h1>
+  <p class="status">Nginx rodando com sucesso</p>
+  <p>Servidor: <strong>Nginx</strong> | IP: <strong id="ip"></strong></p>
+
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(r => r.json())
+      .then(data => document.getElementById('ip').textContent = data.ip)
+      .catch(() => document.getElementById('ip').textContent = 'indisponível');
+  </script>
+</body>
+</html>
